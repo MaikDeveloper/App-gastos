@@ -130,3 +130,14 @@ body {
     padding: 0.7rem;
     border-radius: 8px;
 }
+
+.delete-button-transaction {
+    background-color: #e11d48;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+

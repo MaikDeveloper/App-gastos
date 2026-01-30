@@ -6,6 +6,8 @@ const totalGastos = document.getElementById("balance")
 const transactionsContainer = document.querySelector(".transactions")
 const emptyMessage = document.querySelector(".empty")
 
+const deleteTransactionBtn = document.getElementById("delete-transaction")
+
 
 let balance = 0;
 const listaTransacciones = [];
@@ -14,22 +16,13 @@ button.addEventListener("click" , ()=> {
     modal.classList.add("active")
 }) 
 
-
-document.addEventListener("click", (e) => {   
-    if(e.target === modal) {
+document.addEventListener("click" , (e) => {
+    if(e.target=== modal) {
         modal.classList.remove("active")
-        button.focus()
-        form.reset()
+        form.reset()   
     }
 })
 
-document.addEventListener("keydown", (e) => {
-    if(e.key === "Escape" && modal.classList.contains("active")) {
-        modal.classList.remove("active")
-        button.focus()
-        form.reset()
-    }
-})
 
 form.addEventListener("submit" ,(e)=> {
     e.preventDefault();
@@ -66,7 +59,8 @@ function renderTransactions({tipoGasto, cantidadGasto, categeoriaGasto, descripc
             <strong>${categeoriaGasto}</strong>
             <small>${descripcionGasto}</small>
         </div>
-        <span>${tipoGasto === "spent" ? "-" : "+"} ${cantidadGasto} €</span>`
+        <span>${tipoGasto === "spent" ? "-" : "+"} ${cantidadGasto} €</span>
+        <button class="delete-button-transaction" >Eliminar</button>`
 
     transactionsContainer.appendChild(div)
 }
@@ -75,5 +69,11 @@ function updateBalance(tipoGasto, cantidadGasto) {
     balance+= tipoGasto === "spent" ? -cantidadGasto : cantidadGasto
     totalGastos.textContent = `${balance} €`
 }
+
+
+
+
+
+
 
 
