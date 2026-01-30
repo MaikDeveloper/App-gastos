@@ -6,7 +6,7 @@ const totalGastos = document.getElementById("balance")
 const transactionsContainer = document.querySelector(".transactions")
 const emptyMessage = document.querySelector(".empty")
 
-const deleteTransactionBtn = document.getElementById("delete-transaction")
+const deleteTransactionBtn = document.getElementById(".delete-button-transaction")
 
 
 let balance = 0;
@@ -63,6 +63,12 @@ function renderTransactions({tipoGasto, cantidadGasto, categeoriaGasto, descripc
         <button class="delete-button-transaction" >Eliminar</button>`
 
     transactionsContainer.appendChild(div)
+
+    const deleteTransactionBtn = div.querySelector(".delete-button-transaction")
+    deleteTransactionBtn.addEventListener("click",() => {
+        div.remove()
+        updateBalance(tipoGasto === "spent" ? "income" : "spent", cantidadGasto)
+    })
 }
 
 function updateBalance(tipoGasto, cantidadGasto) {
