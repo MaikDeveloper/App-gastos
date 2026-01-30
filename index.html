@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>App de Gastos</title>
+    </head>
+    
+    <body>
+    
+    <header class="app-header">
+        <h2>Saldo total</h2>
+        <p id="balance">0 €</p>
+    </header>
+
+    <main class="transactions">
+        <!-- Aquí irán las transacciones -->
+        <div class="empty">
+            No hay movimientos todavía
+        </div>
+    </main>
+
+    <button id="button">+</button>
+
+    <!-- MODAL / TARJETA -->
+    <div class="modal" id="modal">
+        <form id="expense-form" >
+            <select id="select">
+                <option value="spent">Gasto</option>
+                <option value="deposit">Ingreso</option>
+            </select>
+
+            <input type="number" id="amount" placeholder="Cantidad €" required>
+            <input type="text" id="category" placeholder="Categoría" required>
+            <input type="text" id="description" placeholder="Descripción (opcional)">
+
+            <button type="submit" id="buttonSave">Guardar</button>
+        </form>
+    </div>
+    
+<script src="app.js" defer></script>
+</body>
+</html>
